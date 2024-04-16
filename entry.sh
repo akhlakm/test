@@ -8,18 +8,21 @@ function exit_script() {
 trap exit_script SIGTERM SIGINT SIGQUIT
 
 export PATH=$PATH:/home/apps/.local/bin:/opt/conda/bin
+export CONDAVENV=/home/apps/condaenv
 eval "$(command conda 'shell.bash' 'hook' 2> /dev/null)"
 
+if [[ -d /data ]]; then
+    echo "Found mounted volume /data"
+    export PIP_CACHE_DIR=/data/pip_cache
+    export CONDAVENV=/data/condaenv
+fi
+
 if ! conda activate venv; then
-     conda create -y -n venv python numpy -c conda-forge
-     conda activate venv
+     conda create -y --prefix $CONDAVENV python numpy -c conda-forge
+     conda activate $CONDAVENV
 fi
 
 if [[ "$#" -lt 1 ]]; then
-    if [[ -d /data ]]; then
-        echo "Found mounted volume /data"
-        export PIP_CACHE_DIR=/data/pip_cache
-    fi
     pip -v install -r requirements.txt
 
     echo -e "Exposed container port: $WS_PORT"

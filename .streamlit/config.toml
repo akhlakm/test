@@ -4,5 +4,5 @@ port = 8501
 
 [browser]
 serverPort = 8501
-serverAddress = 127.0.0.1
+serverAddress = "127.0.0.1"
 gatherUsageStats = false

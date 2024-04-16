@@ -1,8 +1,8 @@
 [server]
 headless = true
-port = 8000
+port = 8501
 
 [browser]
-serverPort = 8000
-serverAddress = "0.0.0.0"
+serverPort = 8501
+serverAddress = 127.0.0.1
 gatherUsageStats = false

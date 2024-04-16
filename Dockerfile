@@ -2,7 +2,7 @@ FROM        continuumio/miniconda3
 LABEL       MAINTAINER="Akhlak Mahmood <akhlakm@gatech.edu>"
 
 #           Use nginx for reverse proxy and static files handler.
-RUN         apt-get -y update && apt-get -y install vim
+RUN         apt-get -y update && apt-get -y install curl nginx vim
 
 #           Set required env variables.
 ENV         MPLCONFIGDIR=/tmp/matplotlib

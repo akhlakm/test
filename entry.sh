@@ -11,7 +11,7 @@ export PATH=$PATH:/home/apps/.local/bin:/opt/conda/bin
 eval "$(command conda 'shell.bash' 'hook' 2> /dev/null)"
 
 if ! conda activate venv; then
-     conda create -n venv python -c conda-forge
+     conda create -y -n venv python numpy -c conda-forge
      conda activate venv
 fi
 

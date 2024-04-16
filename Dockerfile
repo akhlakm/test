@@ -8,7 +8,7 @@ LABEL       MAINTAINER="Akhlak Mahmood <akhlakm@gatech.edu>"
 ENV         MPLCONFIGDIR=/tmp/matplotlib
 ENV         TZ=America/New_York
 ENV         MNTVOL=/data
-ENV         WEBSERVER_HOST_PORT=127.0.0.1:8000
+ENV         WS_PORT=8000
 EXPOSE      8000
 
 #           Catch this to stop the running server.

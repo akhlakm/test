@@ -11,13 +11,13 @@ trap exit_script SIGTERM SIGINT SIGQUIT
 export PATH=$PATH:/home/apps/.local/bin
 
 if [[ "$#" -lt 1 ]]; then
-    echo -e "User webserver at $WEBSERVER_HOST_PORT"
-
     if [[ -d /data ]]; then
         echo "Found mounted volume /data"
         export PIP_CACHE_DIR=/data/pip_cache
     fi
+    pip -v install -r requirements.txt
 
+    echo -e "Exposed webserver port: $WS_PORT"
     tail -f /dev/null   # do not exit
 
 else

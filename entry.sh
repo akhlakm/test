@@ -24,7 +24,7 @@ fi
 
 if [[ "$#" -lt 1 ]]; then
     echo -e "Exposed container port: $WS_PORT"
-    /usr/sbin/nginx -c /home/apps/nginx/nginx.conf
+    # /usr/sbin/nginx -c /home/apps/nginx/nginx.conf
 
     pip -v install -r requirements.txt
     tail -f /dev/null   # do not exit
